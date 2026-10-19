@@ -1,9 +1,14 @@
 import { defineConfig } from "@tarojs/cli";
 
-// Taro 编译配置。骨架期仅此最小形状；weapp 构建门本期不设（spec §4.2），
-// 本文件由 L3 tsc 做类型断言。projectName 由 init 的 lab-management-system-miniprogram 替换落位。
+// Taro 编译配置。骨架期最小形状；L4.5 weapp 构建门要求 sourceRoot/outputRoot——
+// Kernel.initPaths 的必需值，缺失即 TypeError（2026-10-19 本仓 L4.5 首跑实证）。
+// projectName 由 init 的 lab-management-system-miniprogram 替换落位。
 export default defineConfig({
   projectName: "lab-management-system-miniprogram",
   framework: "react",
   compiler: "webpack5",
+  sourceRoot: "src",
+  outputRoot: "dist",
+  mini: {},
+  h5: {},
 });
